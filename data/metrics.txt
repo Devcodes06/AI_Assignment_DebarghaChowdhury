@@ -1,0 +1,45 @@
+MODEL TRAINING RESULTS
+============================================================
+
+Chosen model: Naive Bayes
+
+5-fold Cross-Validation (f1_macro) on training set:
+  Model A (Logistic Regression): mean=0.9669, std=0.0124
+  Model B (Naive Bayes):         mean=0.9669, std=0.0101
+
+Test set results:
+  Accuracy: 0.9690
+  Precision (macro): 0.9694
+  Recall (macro): 0.9691
+  F1 (macro): 0.9690
+  Precision (weighted): 0.9696
+  Recall (weighted): 0.9690
+  F1 (weighted): 0.9691
+
+Classification report:
+                   precision    recall  f1-score   support
+
+   Account Update       0.97      0.96      0.97        73
+Application Error       0.93      0.99      0.96        70
+      Login Issue       0.97      0.97      0.97        70
+      Performance       0.97      0.96      0.96        70
+           Report       1.00      0.97      0.99        72
+
+         accuracy                           0.97       355
+        macro avg       0.97      0.97      0.97       355
+     weighted avg       0.97      0.97      0.97       355
+
+
+Confusion matrix:
+[[70  2  1  0  0]
+ [ 1 69  0  0  0]
+ [ 0  2 68  0  0]
+ [ 1  1  1 67  0]
+ [ 0  0  0  2 70]]
+
+Classes: Account Update, Application Error, Login Issue, Performance, Report
+
+Results in simple language:
+  The model correctly classified 96.9% of the test tickets. This means that out of every 100 tickets, about 96 were assigned to the right category. The macro-averaged F1 score of 0.969 shows how well the model performs across all categories equally, while the weighted-averaged F1 of 0.969 accounts for class sizes. The model is performing satisfactorily - accuracy is above 70%, indicating the category signal is learnable.
+  
+  

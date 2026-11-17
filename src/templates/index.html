@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ticket Classifier</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Support Desk</p>
+    <h1>Ticket Classifier</h1>
+    <hr class="title-rule">
+    <p class="description">Enter a support ticket description to predict its category and get a suggested reply.</p>
+  </header>
+
+  <form id="ticket-form">
+    <label for="description">Ticket description</label>
+    <textarea id="description" name="description" rows="6" placeholder="Describe the issue..."></textarea>
+    <span class="char-count" id="char-count">0 / 1000</span>
+    <div class="button-group">
+      <button type="submit" class="btn-primary" id="classify-btn">Classify ticket</button>
+      <button type="button" class="btn-secondary" id="clear-btn">Clear</button>
+    </div>
+  </form>
+
+  <section id="result" class="result" aria-live="polite" hidden>
+    <p class="eyebrow">Predicted category</p>
+    <h2 id="category-name" class="category-name"></h2>
+    <p class="confidence-text">Confidence: <span id="confidence-value">0</span>%</p>
+    <div class="confidence-bar">
+      <div class="confidence-track"></div>
+      <div class="confidence-fill" id="confidence-fill"></div>
+    </div>
+
+    <table class="top3-table">
+      <thead>
+        <tr>
+          <th>Other likely categories</th>
+          <th>Probability</th>
+        </tr>
+      </thead>
+      <tbody id="top3-body"></tbody>
+    </table>
+
+    <div class="reply-section">
+      <p class="eyebrow">Suggested reply</p>
+      <blockquote class="reply-block" id="reply-block"></blockquote>
+      <button type="button" class="btn-copy" id="copy-btn">Copy reply</button>
+    </div>
+
+    <p id="low-confidence-notice" class="notice"></p>
+    <p id="error-message" class="notice"></p>
+  </section>
+
+  <footer>
+    <p>Model: {{ model_name }}</p>
+  </footer>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
