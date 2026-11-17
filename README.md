@@ -283,9 +283,4 @@ I wrote 12 tickets by hand, two per category plus some ambiguous ones, worded di
 
 Use real ticket data, add more categories, improve the text cleaning (spelling correction), compare Logistic Regression or an SVM again on real data, try sentence embeddings or a BERT model, and retrain regularly with feedback from the support team.
 
-## AI Tools Used
-
-- Claude (Anthropic): planning, explanations, writing prompts and designing the dataset templates
-- Hermes (coding agent): generated and ran the code under my direction
-
 I reviewed the outputs and I can explain the code. No API keys or credentials are in this project.
